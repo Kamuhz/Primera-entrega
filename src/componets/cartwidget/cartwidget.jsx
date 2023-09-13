@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa'; // Importa el ícono de carrito de 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
 
 function CartWidget() {
   return (
