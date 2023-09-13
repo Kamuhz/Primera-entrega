@@ -1,9 +1,21 @@
 import './App.css';
-import Navbar2 from './componets/navbar.jsx'
+import './componets/cartwidget/cartwidget.css'
+import './componets/navbar/navbar.css'
+import Navbar2 from './componets/navbar/navbar.jsx'
+import Itemlistcontainer from './componets/itemlistcontainer/itemlistcontainer'
 
 function App() {
   return (
-    <Navbar2/>
+    <div>
+
+      <Navbar2/>
+
+    <div>
+
+      <Itemlistcontainer greeting="Bienvenidos a Gp Computación"/>
+
+    </div>
+    </div>
   );
 }
 

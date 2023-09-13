@@ -1,0 +1,11 @@
+.navbar-bg-color {
+    background-color: gainsboro;
+  }
+  
+  .container {
+    margin-left: 35px !important;
+  }
+  
+  .navbar-collapse {
+    margin-left: 150px;
+  }

@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CartWidget from './cartwidget.jsx'
+import CartWidget from '../cartwidget/cartwidget.jsx'
 
 function Navbar2() {
   return (
@@ -21,9 +21,8 @@ function Navbar2() {
                 Monitores
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Discos Duros</NavDropdown.Item>
-              <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+                Placas de video
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
