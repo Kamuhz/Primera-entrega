@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Primera-entrega/static/css/main.d5d87c37.css",
-    "main.js": "/Primera-entrega/static/js/main.c2228751.js",
-    "static/js/787.b978bd17.chunk.js": "/Primera-entrega/static/js/787.b978bd17.chunk.js",
-    "index.html": "/Primera-entrega/index.html",
-    "main.d5d87c37.css.map": "/Primera-entrega/static/css/main.d5d87c37.css.map",
-    "main.c2228751.js.map": "/Primera-entrega/static/js/main.c2228751.js.map",
-    "787.b978bd17.chunk.js.map": "/Primera-entrega/static/js/787.b978bd17.chunk.js.map"
+    "main.css": "/Segunda-PreEntrega/static/css/main.d5d87c37.css",
+    "main.js": "/Segunda-PreEntrega/static/js/main.5905a261.js",
+    "static/js/787.b978bd17.chunk.js": "/Segunda-PreEntrega/static/js/787.b978bd17.chunk.js",
+    "index.html": "/Segunda-PreEntrega/index.html",
+    "main.d5d87c37.css.map": "/Segunda-PreEntrega/static/css/main.d5d87c37.css.map",
+    "main.5905a261.js.map": "/Segunda-PreEntrega/static/js/main.5905a261.js.map",
+    "787.b978bd17.chunk.js.map": "/Segunda-PreEntrega/static/js/787.b978bd17.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5d87c37.css",
-    "static/js/main.c2228751.js"
+    "static/js/main.5905a261.js"
   ]
 }
