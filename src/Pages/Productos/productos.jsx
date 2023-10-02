@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 const Productos = () => {
     return (
         <>
-        <div >
+        <div>
         <h2>Productos</h2>
         </div>
         {
             items.map((item) => {
                 return (
                     <div>
-                    <Link to={`/productos/${item.id}`}>{item.nombre}</Link>
+                    <Link to={`${item.id}`}>{item.nombre}</Link>
                     </div>
                 )
             })

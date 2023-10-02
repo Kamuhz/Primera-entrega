@@ -11,7 +11,7 @@ const Ssd = () => {
             items.map((item) => {
                 return (
                     <div>
-                    {item.categoria}
+                    
                     </div>
                 )
             })

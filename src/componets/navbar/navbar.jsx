@@ -9,15 +9,15 @@ import { LinkContainer } from 'react-router-bootstrap';
 function Navbar2() {
   return (
     <Navbar expand="lg" className="navbar-bg-color">
-      <Container classname="divcontainer">
-        <Navbar.Brand href="#home" className="titulo-brand">Gp-Computación</Navbar.Brand>
+      <Container className="divcontainer">
+        <Navbar.Brand href="/" className="titulo-brand">Gp-Computación</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <LinkContainer to="/">
             <Nav.Link>Inicio</Nav.Link>
           </LinkContainer>
-            <Nav.Link href="#link">Pcs Completas</Nav.Link>
+            <Nav.Link href="/Catalogo">Catalogo</Nav.Link>
             <NavDropdown title="Componentes" id="basic-nav-dropdown">
             <LinkContainer to="/teclados">
               <NavDropdown.Item >Teclados</NavDropdown.Item>

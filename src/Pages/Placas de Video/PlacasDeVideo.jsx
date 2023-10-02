@@ -11,7 +11,7 @@ const Graficas = () => {
             items.map((item) => {
                 return (
                     <div>
-                    {item.precio}
+                    
                     </div>
                 )
             })

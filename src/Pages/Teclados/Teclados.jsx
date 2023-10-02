@@ -4,14 +4,14 @@ import { items } from '../../helper/items'
 const Teclados = () => {
     return (
         <>
-        <div >
+        <div>
         <h2>Teclados</h2>
         </div>
         {
             items.map((item) => {
                 return (
                     <div>
-                    {item.stock}
+                    
                     </div>
                 )
             })
@@ -20,4 +20,4 @@ const Teclados = () => {
     )
 }
 
-export default Teclados
+export default Teclados;
