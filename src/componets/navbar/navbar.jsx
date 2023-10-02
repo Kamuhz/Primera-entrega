@@ -10,14 +10,18 @@ function Navbar2() {
   return (
     <Navbar expand="lg" className="navbar-bg-color">
       <Container className="divcontainer">
-        <Navbar.Brand href="/" className="titulo-brand">Gp-Computación</Navbar.Brand>
+        <LinkContainer to="/home">
+        <Navbar.Brand className="titulo-brand">Gp-Computación</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <LinkContainer to="/">
+          <LinkContainer to="/home">
             <Nav.Link>Inicio</Nav.Link>
           </LinkContainer>
-            <Nav.Link href="/Catalogo">Catalogo</Nav.Link>
+          <LinkContainer to="/productos">
+            <Nav.Link>Productos</Nav.Link>
+            </LinkContainer>
             <NavDropdown title="Componentes" id="basic-nav-dropdown">
             <LinkContainer to="/teclados">
               <NavDropdown.Item >Teclados</NavDropdown.Item>

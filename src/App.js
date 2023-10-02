@@ -9,14 +9,16 @@ import Ssd from './Pages/Discos Duros/ssd';
 import Monitores from './Pages/Monitores/Monitores'
 import Graficas from './Pages/Placas de Video/PlacasDeVideo';
 import Teclados from './Pages/Teclados/Teclados';
+import Home from './Pages/Home/home';
 
 function App() {
   return (
     <BrowserRouter className="App">
       <Navbar2 />
+      <Home />
       <Routes>
-        <Route path='/Catalogo' element={<Productos/>}/>
-        <Route path='Catalogo/:itemId' element={<Item/>}/>
+        <Route path='/productos' element={<Productos/>}/>
+        <Route path='productos/:itemId' element={<Item/>}/>
         <Route path='/ssd' element={<Ssd/>}/>
         <Route path='ssd/:itemId' element={<Item/>}/>
         <Route path='/monitores' element={<Monitores/>}/>

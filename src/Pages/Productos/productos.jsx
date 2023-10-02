@@ -6,12 +6,12 @@ const Productos = () => {
     return (
         <>
         <div>
-        <h2>Productos</h2>
+        <h2 style={{display:"flex", justifyContent:"center", marginTop: "50px"}}>Productos</h2>
         </div>
         {
             items.map((item) => {
                 return (
-                    <div>
+                    <div style={{display:"flex", justifyContent:"center",}}>
                     <Link to={`${item.id}`}>{item.nombre}</Link>
                     </div>
                 )
