@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from '../cartwidget/cartwidget.jsx'
+import { LinkContainer } from 'react-router-bootstrap';
 
 function Navbar2() {
   return (
@@ -13,17 +14,27 @@ function Navbar2() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
+          <LinkContainer to="/">
+            <Nav.Link>Inicio</Nav.Link>
+          </LinkContainer>
             <Nav.Link href="#link">Pcs Completas</Nav.Link>
             <NavDropdown title="Componentes" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Teclados</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+            <LinkContainer to="/teclados">
+              <NavDropdown.Item >Teclados</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/monitores">
+              <NavDropdown.Item >
                 Monitores
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Discos Duros</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
+              </LinkContainer>
+              <LinkContainer to="/ssd">
+              <NavDropdown.Item >Discos Duros</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/graficas">
+              <NavDropdown.Item >
                 Placas de video
               </NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
