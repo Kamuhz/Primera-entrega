@@ -1,23 +1,25 @@
-import React from 'react'
-import { items } from '../../helper/items'
+import React from 'react';
+import { items } from '../../helper/items';
+import '../Productos/productos.css'
 
-const Monitores = () => {
-    return (
-        <>
-        <div >
-        <h2>Monitores</h2>
-        </div>
-        {
-            items.map((item) => {
-                return (
-                    <div>
-                    {item.id}
-                    </div>
-                )
-            })
-        }
-        </>
-    )
+function MonitoresPage() {
+  const monitores = items.filter((item) => item.categoria === 'Monitor');
+
+  return (
+    <div><h1 className="page-title">Monitores</h1>
+    <div className="products">
+      <ul className="product-list">
+        {monitores.map((monitor) => (
+          <li key={monitor.id} className="product-item">
+            <img src={monitor.imagenURL} alt={monitor.nombre} />
+            <strong>{monitor.nombre}</strong>
+            <p>Precio: ${monitor.precio}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    </div>
+  );
 }
 
-export default Monitores
+export default MonitoresPage;

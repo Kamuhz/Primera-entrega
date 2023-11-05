@@ -1,24 +1,30 @@
-import React from 'react'
-import { items } from '../../helper/items'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { items } from '../../helper/items'
+import './productos.css'
+import Button from 'react-bootstrap/Button';
+import { getDocs, collection, getFirestore } from 'firebase/firestore'
 
-const Productos = () => {
+function Products () {
     return (
-        <>
-        <div>
-        <h2 style={{display:"flex", justifyContent:"center", marginTop: "50px"}}>Productos</h2>
+        <div><h1>Catalogo de Productos</h1>
+        <main className='products'>
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>
+                        <img src={item.imagenURL} alt={item.nombre} />
+                        <div>
+                            <strong>{item.nombre}</strong> - ${item.precio}
+                        </div>
+                        <div>
+                        <Button variant="primary"><Link to={`${item.id}`}>Ver Producto</Link></Button>
+                        </div>
+                    </li>
+                ))}      
+            </ul>
+        </main>    
         </div>
-        {
-            items.map((item) => {
-                return (
-                    <div style={{display:"flex", justifyContent:"center",}}>
-                    <Link to={`${item.id}`}>{item.nombre}</Link>
-                    </div>
-                )
-            })
-        }
-        </>
     )
 }
 
-export default Productos
+export default Products

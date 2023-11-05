@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 const Item = () => {
     const { itemId } = useParams()
     const Products = getItemById(itemId)
-
+    
     return (
         <div style={{display:"flex", justifyContent:"center", height: "525px", marginTop: "50px"}}>
         <Card style={{ width: '18rem' }}>

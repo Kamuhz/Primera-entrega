@@ -122,7 +122,7 @@ export const items = [
   {
     id: 14,
     categoria: 'Monitor',
-    nombre: 'Monitor Ultrawide 34 pulgadas',
+    nombre: 'Monitor Ultrawide 34"',
     precio: 350,
     stock: 5,
     descripcion: 'Monitor ultrawide de 34 pulgadas para una experiencia visual expansiva.',
@@ -141,7 +141,7 @@ export const items = [
   {
     id: 16,
     categoria: 'Disco duro',
-    nombre: 'SSD 500GB',
+    nombre: 'SSD 500GB Adata SU630 Ultimate',
     precio: 80,
     stock: 5,
     descripcion: 'SSD de 500GB para un rendimiento de almacenamiento rápido y eficiente.',
