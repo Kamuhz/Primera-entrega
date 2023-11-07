@@ -1,37 +1,34 @@
-import { React, useContext } from "react";
-import { CartContext } from "../context/cartcontext";
-import './cart.css'
-import { Button } from "react-bootstrap";
+import React, { useContext } from 'react';
+import { CartContext } from '../context/cartcontext';
+import './cart.css'; // Importa un archivo CSS para estilos
 
-const Cart = () => {
+function Cart() {
+  const { productosCarrito, eliminarProducto, calcularTotal } = useContext(CartContext);
 
-    const {productosCarrito, eliminarProducto} = useContext(CartContext)
-
-    return (
+  return (
+    <div className="cart-container">
+      <h2>Carrito de Compras</h2>
+      {productosCarrito.length > 0 ? (
         <>
-        <div>
-            <h2>Carrito</h2>
-        </div>
-            {
-            productosCarrito.length > 0 ?
-            productosCarrito.map ((item) => {
-
-                return (
-                    <div className="cartContainer">
-                        <h4 className="cartTitle">{item.nombre}</h4>
-                        <p className="cartPrice">{item.precio}$</p>
-                        <Button variant="primary" className="cartButton" onClick={()=> eliminarProducto(item.id)}>Eliminar Producto</Button>
-                    </div>
-                )
-                })
-                :
-                <div>
-                    <span>Debe Agregar productos al Carrito</span>
-                </div>
-            }
+        <ul className="cart-list">
+          {productosCarrito.map((producto) => (
+            <li key={producto.id} className="cart-item">
+              <span className="cart-quantity">{producto.cantidad}</span>
+              <span className="cart-name">{producto.nombre}</span>
+              <span className="cart-price">${producto.precio}</span>
+              <button className="cart-remove" onClick={() => eliminarProducto(producto.id)}>
+                X
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="cart-total">Total: ${calcularTotal()}</div>
         </>
-    )
-    
+      ) : (
+        <div className="empty-cart">Debe Agregar productos al Carrito</div>
+      )}
+    </div>
+  );
 }
 
-export default Cart
+export default Cart;

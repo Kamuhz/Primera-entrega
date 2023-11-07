@@ -1,4 +1,5 @@
 import './App.css';
+import { CarritoProvider } from './componets/context/cartcontext.jsx';
 import './componets/cartwidget/cartwidget.css';
 import './componets/navbar/navbar.css';
 import Navbar2 from './componets/navbar/navbar.jsx';
@@ -10,15 +11,14 @@ import MonitoresPage from './Pages/Monitores/Monitores.jsx';
 import PlacasDeVideoPage from './Pages/Placas de Video/PlacasDeVideo.jsx'
 import TecladosPage from './Pages/Teclados/Teclados.jsx'
 import Home from './Pages/Home/home';
-import { CarritoProvider } from './componets/context/cartcontext.jsx';
 import Cart from './componets/cart/cart.jsx';
 
 function App() {
 
   return (
+    <CarritoProvider>
     <BrowserRouter className="App">
       <Navbar2 />
-      <CarritoProvider>
         <Routes>
           <Route path='/home' element={<Home />}/>
           <Route path='/productos' element={<Products/>}/>
@@ -33,8 +33,8 @@ function App() {
           <Route path='teclados/:itemId' element={<Item/>}/>
           <Route path='/cart' element={<Cart/>}/>
         </Routes>
-      </CarritoProvider>
     </BrowserRouter>
+    </CarritoProvider>
   );
 }
 

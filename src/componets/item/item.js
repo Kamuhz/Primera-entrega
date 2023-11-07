@@ -8,7 +8,21 @@ import { CartContext } from '../context/cartcontext.jsx'
 const Item = () => {
     const { itemId } = useParams()
     const Products = getItemById(itemId)
-    const { agregarProducto } = useContext(CartContext)
+    const { agregarProducto, productosCarrito } = useContext(CartContext)
+    
+    const handleAgregarAlCarrito = () => {
+      const productoExistente = productosCarrito.find((item) => item.id === Products.id);
+  
+      if (productoExistente) {
+        agregarProducto((oldData) =>
+          oldData.map((item) =>
+            item.id === Products.id ? { ...item, cantidad: item.cantidad + 1 } : item
+          )
+        );
+      } else {
+        agregarProducto([...productosCarrito, { ...Products, cantidad: 1 }]);
+      }
+    };
     
     return (
         <div style={{display:"flex", justifyContent:"center", height: "525px", marginTop: "50px"}}>
@@ -19,7 +33,7 @@ const Item = () => {
             <Card.Text>{Products.descripcion}</Card.Text>
             <p>Precio: {Products.precio}</p>
             <p>Stock: {Products.stock} Unidades</p>
-            <Button variant="primary" onClick={()=> agregarProducto(oldData =>[...oldData, Products])}>Añadir al carro</Button>
+            <Button variant="primary" onClick={handleAgregarAlCarrito}>Añadir al carro</Button>
           </Card.Body>
         </Card>
         </div>
