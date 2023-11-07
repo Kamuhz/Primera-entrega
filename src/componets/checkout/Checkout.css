@@ -1,0 +1,52 @@
+.checkout-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .checkout-form {
+    display: inline-block;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .submit-button {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 25px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .letra-p {
+        margin-top: 20px;
+        font-size: 25px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+  

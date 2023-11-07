@@ -12,6 +12,7 @@ import PlacasDeVideoPage from './Pages/Placas de Video/PlacasDeVideo.jsx'
 import TecladosPage from './Pages/Teclados/Teclados.jsx'
 import Home from './Pages/Home/home';
 import Cart from './componets/cart/cart.jsx';
+import Checkout from './componets/checkout/checkout.jsx';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="teclados" element={<TecladosPage/>} />
           <Route path='teclados/:itemId' element={<Item/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/checkout' element={<Checkout/>}/>
         </Routes>
     </BrowserRouter>
     </CarritoProvider>
