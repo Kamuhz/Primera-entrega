@@ -4,17 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB5cG6IMCIRgcszU__GOVhmcU9gniNbc9U",
-  authDomain: "e-commerce-entregafinal.firebaseapp.com",
-  projectId: "e-commerce-entregafinal",
-  storageBucket: "e-commerce-entregafinal.appspot.com",
-  messagingSenderId: "148359215152",
-  appId: "1:148359215152:web:1e5c0adebd16206e8bd5f5"
+  apiKey: "AIzaSyAemtKlSjyi2kuBtDo48lX-eWIcUkqPksw",
+  authDomain: "proyecto-final-8dc53.firebaseapp.com",
+  projectId: "proyecto-final-8dc53",
+  storageBucket: "proyecto-final-8dc53.appspot.com",
+  messagingSenderId: "509506128170",
+  appId: "1:509506128170:web:434f9231fecfc6b0de3653"
 };
 
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export { db };
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

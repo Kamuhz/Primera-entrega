@@ -1,30 +1,53 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { items } from '../../helper/items'
 import './productos.css'
 import Button from 'react-bootstrap/Button';
-import { getDocs, collection, getFirestore } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../index';
 
-function Products () {
-    return (
-        <div><h1>Catalogo de Productos</h1>
-        <main className='products'>
-            <ul>
-                {items.map(item => (
-                    <li key={item.id}>
-                        <img src={item.imagenURL} alt={item.nombre} />
-                        <div>
-                            <strong>{item.nombre}</strong> - ${item.precio}
-                        </div>
-                        <div>
-                        <Button variant="primary"><Link to={`${item.id}`}>Ver Producto</Link></Button>
-                        </div>
-                    </li>
-                ))}      
-            </ul>
-        </main>    
-        </div>
-    )
+function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'items'));
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <div>
+      <h1>Catalogo de Productos</h1>
+      <main className='products'>
+        <ul>
+          {products.map((item) => (
+            <li key={item.id}>
+              <img src={item.imagenURL} alt={item.nombre} />
+              <div>
+                <strong>{item.nombre}</strong>
+                <p className='product-price'>${item.precio}</p>
+              </div>
+              <div>
+                <Button variant="primary">
+                  <Link to={`${item.id}`}>Ver Producto</Link>
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </div>
+  );
 }
 
-export default Products
+export default Products;

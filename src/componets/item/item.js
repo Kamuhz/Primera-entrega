@@ -1,43 +1,57 @@
-import { React, useContext} from 'react'
-import { useParams } from 'react-router-dom'
-import { getItemById } from '../../helper/items.js'
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getItemById } from '../../helper/items';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { CartContext } from '../context/cartcontext.jsx'
+import { CartContext } from '../context/cartcontext';
 
 const Item = () => {
-    const { itemId } = useParams()
-    const Products = getItemById(itemId)
-    const { agregarProducto, productosCarrito } = useContext(CartContext)
-    
+    const { itemId } = useParams();
+    const { agregarProducto, productosCarrito } = useContext(CartContext);
+    const [loading, setLoading] = useState(true);
+    const [productData, setProductData] = useState(null);
+
+    useEffect(() => {
+        const fetchProductData = async () => {
+            const product = await getItemById(itemId);
+            setProductData(product);
+            setLoading(false);
+        };
+        fetchProductData();
+    }, [itemId]);
+
     const handleAgregarAlCarrito = () => {
-      const productoExistente = productosCarrito.find((item) => item.id === Products.id);
-  
-      if (productoExistente) {
-        agregarProducto((oldData) =>
-          oldData.map((item) =>
-            item.id === Products.id ? { ...item, cantidad: item.cantidad + 1 } : item
-          )
-        );
-      } else {
-        agregarProducto([...productosCarrito, { ...Products, cantidad: 1 }]);
-      }
+        const productoExistente = productosCarrito.find((item) => item.id === productData.id);
+
+        if (productoExistente) {
+            agregarProducto((oldData) =>
+                oldData.map((item) =>
+                    item.id === productData.id ? { ...item, cantidad: item.cantidad + 1 } : item
+                )
+            );
+        } else {
+            agregarProducto([...productosCarrito, { ...productData, cantidad: 1 }]);
+        }
     };
-    
-    return (
-        <div style={{display:"flex", justifyContent:"center", height: "525px", marginTop: "50px"}}>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={Products.imagenURL} />
-          <Card.Body>
-            <Card.Title>{Products.nombre}</Card.Title>
-            <Card.Text>{Products.descripcion}</Card.Text>
-            <p>Precio: {Products.precio}</p>
-            <p>Stock: {Products.stock} Unidades</p>
-            <Button variant="primary" onClick={handleAgregarAlCarrito}>Añadir al carro</Button>
-          </Card.Body>
-        </Card>
-        </div>
-      );
+
+    if (loading) {
+        return <div>Cargando...</div>;
     }
 
-export default Item
+    return (
+        <div style={{ display: "flex", justifyContent: "center", height: "525px", marginTop: "50px" }}>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={productData.imagenURL} />
+                <Card.Body>
+                    <Card.Title>{productData.nombre}</Card.Title>
+                    <Card.Text>{productData.descripcion}</Card.Text>
+                    <p>Precio: {productData.precio}</p>
+                    <p>Stock: {productData.stock} Unidades</p>
+                    <Button variant="primary" onClick={handleAgregarAlCarrito}>Añadir al carro</Button>
+                </Card.Body>
+            </Card>
+        </div>
+    );
+};
+
+export default Item;

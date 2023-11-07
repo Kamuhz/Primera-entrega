@@ -44,3 +44,7 @@ h1 {
     color: white;
     text-decoration: none;
 }
+
+.product-price {
+    margin-top: 25px;
+}
