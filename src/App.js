@@ -10,24 +10,30 @@ import MonitoresPage from './Pages/Monitores/Monitores.jsx';
 import PlacasDeVideoPage from './Pages/Placas de Video/PlacasDeVideo.jsx'
 import TecladosPage from './Pages/Teclados/Teclados.jsx'
 import Home from './Pages/Home/home';
+import { CarritoProvider } from './componets/context/cartcontext.jsx';
+import Cart from './componets/cart/cart.jsx';
 
 function App() {
+
   return (
     <BrowserRouter className="App">
       <Navbar2 />
-      <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/productos' element={<Products/>}/>
-        <Route path='productos/:itemId' element={<Item/>}/>
-        <Route path='/ssd' element={<SsdPage/>}/>
-        <Route path='ssd/:itemId' element={<Item/>}/>
-        <Route path='/monitores' element={<MonitoresPage/>}/>
-        <Route path='monitores/:itemId' element={<Item/>}/>
-        <Route path='/graficas' element={<PlacasDeVideoPage/>}/>
-        <Route path='graficas/:itemId' element={<Item/>}/>
-        <Route path="teclados" element={<TecladosPage/>} />
-        <Route path='teclados/:itemId' element={<Item/>}/>
-      </Routes>
+      <CarritoProvider>
+        <Routes>
+          <Route path='/home' element={<Home />}/>
+          <Route path='/productos' element={<Products/>}/>
+          <Route path='productos/:itemId' element={<Item/>}/>
+          <Route path='/ssd' element={<SsdPage/>}/>
+          <Route path='ssd/:itemId' element={<Item/>}/>
+          <Route path='/monitores' element={<MonitoresPage/>}/>
+          <Route path='monitores/:itemId' element={<Item/>}/>
+          <Route path='/graficas' element={<PlacasDeVideoPage/>}/>
+          <Route path='graficas/:itemId' element={<Item/>}/>
+          <Route path="teclados" element={<TecladosPage/>} />
+          <Route path='teclados/:itemId' element={<Item/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+        </Routes>
+      </CarritoProvider>
     </BrowserRouter>
   );
 }

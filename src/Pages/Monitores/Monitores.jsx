@@ -1,6 +1,8 @@
 import React from 'react';
 import { items } from '../../helper/items';
 import '../Productos/productos.css'
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function MonitoresPage() {
   const monitores = items.filter((item) => item.categoria === 'Monitor');
@@ -14,6 +16,9 @@ function MonitoresPage() {
             <img src={monitor.imagenURL} alt={monitor.nombre} />
             <strong>{monitor.nombre}</strong>
             <p>Precio: ${monitor.precio}</p>
+            <div>
+              <Button variant="primary"><Link to={`${monitor.id}`}>Ver Producto</Link></Button>
+            </div>
           </li>
         ))}
       </ul>

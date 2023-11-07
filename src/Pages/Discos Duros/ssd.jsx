@@ -1,6 +1,8 @@
 import React from 'react';
 import { items } from '../../helper/items';
-import '../Productos/productos.css'; 
+import '../Productos/productos.css';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SsdPage() {
   
@@ -15,6 +17,9 @@ function SsdPage() {
             <img src={ssd.imagenURL} alt={ssd.nombre} />
             <strong>{ssd.nombre}</strong>
             <p>Precio: ${ssd.precio}</p>
+            <div>
+              <Button variant="primary"><Link to={`${ssd.id}`}>Ver Producto</Link></Button>
+            </div>
           </li>
         ))}
       </ul>
